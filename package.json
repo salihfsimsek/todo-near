@@ -12,16 +12,17 @@
     "clean-contract": "rm -rf ./build && rm -rf ./neardev"
   },
   "dependencies": {
+    "@assemblyscript/loader": "^0.20.4",
+    "asbuild": "^0.2.0",
     "near-api-js": "^0.44.2",
     "next": "12.1.4",
     "react": "18.0.0",
-    "react-dom": "18.0.0",
-    "@assemblyscript/loader": "^0.18.32"
+    "react-dom": "18.0.0"
   },
   "devDependencies": {
+    "assemblyscript": "^0.20.4",
     "eslint": "8.13.0",
     "eslint-config-next": "12.1.4",
-    "near-sdk-as": "^3.2.3",
-    "assemblyscript": "^0.18.32"
+    "near-sdk-as": "^3.2.3"
   }
 }

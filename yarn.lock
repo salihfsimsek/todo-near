@@ -88,6 +88,11 @@
   resolved "https://registry.yarnpkg.com/@assemblyscript/loader/-/loader-0.18.32.tgz#2216fc7df235df247c95004457efd9c0a7da33ed"
   integrity sha512-fq+nWvQuwASkTgchjMsnLyharobzPJIKx4KGoSlkS1ffrsnjabok2oOH7jAIFW4RMz3JXjHxMONbAmcxzyrcUw==
 
+"@assemblyscript/loader@^0.20.4":
+  version "0.20.4"
+  resolved "https://registry.yarnpkg.com/@assemblyscript/loader/-/loader-0.20.4.tgz#cf6144c71d354284d982bd2104c662b22cf1ea5f"
+  integrity sha512-CCRdoUdO3tJZDpwU3diJ8g+oJ1IlVqj+LR/aX+qPJz1tRTofXOcgtLtTLcvN2xpL9IWi7Ga0T+5ghnbk9288XA==
+
 "@babel/code-frame@7.12.11":
   version "7.12.11"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.12.11.tgz#f4ad435aa263db935b8f10f2c552d23fb716a63f"
@@ -478,6 +483,14 @@ assemblyscript@^0.18.25, assemblyscript@^0.18.31:
     binaryen "100.0.0-nightly.20210413"
     long "^4.0.0"
 
+assemblyscript@^0.20.4:
+  version "0.20.4"
+  resolved "https://registry.yarnpkg.com/assemblyscript/-/assemblyscript-0.20.4.tgz#42bab6a29eee56995000a02beb9c5d36a978c55a"
+  integrity sha512-ku/6G/Js5T3MGqQesaaBsZQA7EYi/hDIiR5EPEATHfJi/CTvmO7675SvRqUsk+RFtnjzEldZQk1VvQUq2Hx/xQ==
+  dependencies:
+    binaryen "106.0.0-nightly.20220320"
+    long "^5.2.0"
+
 ast-types-flow@^0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/ast-types-flow/-/ast-types-flow-0.0.7.tgz#f70b735c6bca1a5c9c22d982c3e39e7feba3bdad"
@@ -533,6 +546,11 @@ binaryen@100.0.0-nightly.20210413:
   version "100.0.0-nightly.20210413"
   resolved "https://registry.yarnpkg.com/binaryen/-/binaryen-100.0.0-nightly.20210413.tgz#b7f2a5bb1f76b2d6f9c67486ca218714b3766790"
   integrity sha512-EeGLIxQmJS0xnYl+SH34mNBqVMoixKd9nsE7S7z+CtS9A4eoWn3Qjav+XElgunUgXIHAI5yLnYT2TUGnLX2f1w==
+
+binaryen@106.0.0-nightly.20220320:
+  version "106.0.0-nightly.20220320"
+  resolved "https://registry.yarnpkg.com/binaryen/-/binaryen-106.0.0-nightly.20220320.tgz#ee74538fae5fdcef8b5eba1ae0cd62dcead6aa5d"
+  integrity sha512-9Jzp9aOJ2uk2+viAiPr6+wi1BZKlxO4paTVm481RUEq3PIY63kdw78JoThrROt1s1qpCMuz0Oml6YqPJ7tep4w==
 
 bn.js@5.2.0, bn.js@^5.1.1, bn.js@^5.2.0:
   version "5.2.0"
@@ -1685,6 +1703,11 @@ long@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/long/-/long-4.0.0.tgz#9a7b71cfb7d361a194ea555241c92f7468d5bf28"
   integrity sha512-XsP+KhQif4bjX1kbuSiySJFNAehNxgLb6hPRGJ9QsUr8ajHkuXGdrHmFUTUUXhDwVX2R5bY4JNZEwbUiMhV+MA==
+
+long@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/long/-/long-5.2.0.tgz#2696dadf4b4da2ce3f6f6b89186085d94d52fd61"
+  integrity sha512-9RTUNjK60eJbx3uz+TEGF7fUr29ZDxR5QzXcyDpeSfeH28S9ycINflOgOlppit5U+4kNTe83KQnMEerw7GmE8w==
 
 loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
