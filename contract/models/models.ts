@@ -4,6 +4,12 @@ import { PersistentUnorderedMap, math } from 'near-sdk-as';
 //We'll use this to persist and retrieve data.
 export const todos = new PersistentUnorderedMap<u32, Todo>('todos')
 
+@nearBindgen
+export class PartialTodo {
+    task: string;
+    done: bool;
+}
+
 //Think of this like a model class in something like mongoose or 
 //sequelize. It defines the shape or schema for our data. It will
 //also contain static methods to read and write data from and to
@@ -47,5 +53,19 @@ export class Todo {
         //todo. For example, if offset is 10 and limit is 3 then
         //this would return the 10, 11, 12 todo.
         return todos.values(offset, offset + limit);
+    }
+
+    static findByIdAndUpdate(id: u32, partialTodo: PartialTodo): Todo{
+        //Find a todo by its id
+        const todo = this.findById(id);
+
+        //Update the todo's task and done properties
+        todo.task = partialTodo.task;
+        todo.done = partialTodo.done;
+
+        //persist the updated todo
+        todos.set(todo.id, todo);
+
+        return todo;
     }
 } 
