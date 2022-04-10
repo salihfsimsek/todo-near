@@ -18,3 +18,7 @@ export function get(offset:u32, limit:u32 = 10): Todo[]{
 export function update(id: u32, partialTodo: PartialTodo): Todo{
     return Todo.findByIdAndUpdate(id, partialTodo);
 }
+
+export function del(id: u32): void{
+    Todo.findByIdAndDelete(id);
+}
