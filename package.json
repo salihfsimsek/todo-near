@@ -6,15 +6,22 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build-contract": "asb",
+    "deploy-contract": "yarn build-contract && near dev-deploy ./build/release/contract.wasm",
+    "clean-contract": "rm -rf ./build && rm -rf ./neardev"
   },
   "dependencies": {
+    "near-api-js": "^0.44.2",
     "next": "12.1.4",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "@assemblyscript/loader": "^0.18.32"
   },
   "devDependencies": {
     "eslint": "8.13.0",
-    "eslint-config-next": "12.1.4"
+    "eslint-config-next": "12.1.4",
+    "near-sdk-as": "^3.2.3",
+    "assemblyscript": "^0.18.32"
   }
 }
