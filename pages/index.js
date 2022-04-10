@@ -4,6 +4,7 @@ import Header from './Components/Header'
 import MainPage from './Components/MainPage'
 
 export default function Home() {
+
   return (
     <div className='h-screen max-h-screen w-screen bg-orange-300 flex flex-col'>
       <Head>

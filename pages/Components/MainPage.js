@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import Input from "../Tools/Input";
 import SendButton from "../Tools/SendButton";
 import TodoItem from "./TodoItem";
+
+import { viewFunction, signIn } from "../../near/config";
 
 const MainPage = () => {
   const [todoInput, setTodoInput] = useState("");
@@ -10,10 +13,13 @@ const MainPage = () => {
 
   const saveTodo = () => {
     //request configuration will add
-
     setTodos([...todos, {task: todoInput}]);
     setTodoInput("");
   }
+
+  useEffect(() => {
+    viewFunction('get', {'offset': 0}).then(result => setTodos([...result])).catch(err => console.log(err))
+  },[])
 
   return (
     <div className="h-full flex justify-center">
