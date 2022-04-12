@@ -9,8 +9,10 @@ import { viewFunction, callFunction } from "../../near/config";
 const MainPage = () => {
   const [todoInput, setTodoInput] = useState("");
   const [todos, setTodos] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const saveTodo = () => {
+    setLoading(true);
     //request configuration will add
     callFunction("create", { task: todoInput })
       .then(() => {
@@ -19,7 +21,8 @@ const MainPage = () => {
         });
         setTodoInput("");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
     // setTodos([...todos, {  }]);
   };
 
@@ -35,7 +38,7 @@ const MainPage = () => {
         <div className="h-full w-1/2 py-5">
           <div id="main-page-input-area" className="flex justify-center">
             <Input value={todoInput} onChange={setTodoInput} />
-            <SendButton onClick={saveTodo} />
+            <SendButton loading={loading} onClick={saveTodo} />
           </div>
           <div>
             {todos.map((todo) => (
