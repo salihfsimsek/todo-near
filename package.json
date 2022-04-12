@@ -21,6 +21,7 @@
     "react-dom": "18.0.0"
   },
   "devDependencies": {
+    "@next/swc-darwin-x64": "^11.1.2",
     "assemblyscript": "^0.20.4",
     "autoprefixer": "^10.4.4",
     "eslint": "8.13.0",
