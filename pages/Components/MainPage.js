@@ -9,17 +9,18 @@ import { viewFunction, signIn } from "../../near/config";
 const MainPage = () => {
   const [todoInput, setTodoInput] = useState("");
   const [todos, setTodos] = useState([]);
-  const [selectedTodo, setSelectedTodo] = useState({})
 
   const saveTodo = () => {
     //request configuration will add
-    setTodos([...todos, {task: todoInput}]);
+    setTodos([...todos, { task: todoInput }]);
     setTodoInput("");
-  }
+  };
 
   useEffect(() => {
-    viewFunction('get', {'offset': 0}).then(result => setTodos([...result])).catch(err => console.log(err))
-  },[])
+    viewFunction("get", { offset: 0 })
+      .then((result) => setTodos([...result]))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div className="h-full flex justify-center">
@@ -27,11 +28,16 @@ const MainPage = () => {
         <div className="h-full w-1/2 py-5">
           <div id="main-page-input-area" className="flex justify-center">
             <Input value={todoInput} onChange={setTodoInput} />
-            <SendButton onClick={saveTodo}/>
+            <SendButton onClick={saveTodo} />
           </div>
           <div>
-            {todos.map(todo => (
-              <TodoItem key={todo?.id} todo={todo} selectedTodo={selectedTodo}/>
+            {todos.map((todo) => (
+              <TodoItem
+                key={todo?.id}
+                todo={todo}
+                todos={todos}
+                setTodos={setTodos}
+              />
             ))}
           </div>
         </div>

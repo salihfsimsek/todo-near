@@ -2,7 +2,7 @@ import React from "react";
 
 import { callFunction } from "../../near/config";
 
-const TodoItem = ({ todo, selectedTodo }) => {
+const TodoItem = ({ todo, todos, setTodos }) => {
   const handleUpdate = (todo) => {
     callFunction("update", {
       id: todo.id,
@@ -11,13 +11,22 @@ const TodoItem = ({ todo, selectedTodo }) => {
         done: !todo.done,
       },
     })
-      .then((result) => console.log(result))
+      .then((result) => {
+        let newArray = todos.map((item) => {
+          if (item.id === todo.id) item.done = !todo.done;
+          return item;
+        });
+        setTodos([...newArray]);
+      })
       .catch((err) => console.log(err));
   };
 
   const handleDelete = (todo) => {
     callFunction("del", { id: todo.id })
-      .then((result) => console.log(result))
+      .then((result) => {
+        let newArray = todos.filter((item) => item.id !== todo.id);
+        setTodos([...newArray]);
+      })
       .catch((err) => console.log(err));
   };
 
@@ -34,7 +43,7 @@ const TodoItem = ({ todo, selectedTodo }) => {
           onClick={() => handleUpdate(todo)}
           className="px-4 py-1 border-2 border-none rounded-md hover:bg-green-900 hover:text-white mr-4"
         >
-          Done
+          {todo.done ? "Undone" : "Done"}
         </button>
         <button
           onClick={() => handleDelete(todo)}
