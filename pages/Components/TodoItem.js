@@ -33,7 +33,7 @@ const TodoItem = ({ todo, todos, setTodos }) => {
   return (
     <div
       className={`flex flex-row justify-between items-center border-2 border-white pl-4 my-4 h-10 rounded-md
-      ${todo.done ? "bg-red-900" : ""}`}
+      ${todo.done ? "bg-black text-white" : ""}`}
     >
       <div className="w-8/12">
         <span>{todo.task}</span>

@@ -4,7 +4,7 @@ import Input from "../Tools/Input";
 import SendButton from "../Tools/SendButton";
 import TodoItem from "./TodoItem";
 
-import { viewFunction, signIn } from "../../near/config";
+import { viewFunction, callFunction } from "../../near/config";
 
 const MainPage = () => {
   const [todoInput, setTodoInput] = useState("");
@@ -12,7 +12,13 @@ const MainPage = () => {
 
   const saveTodo = () => {
     //request configuration will add
-    setTodos([...todos, { task: todoInput }]);
+    callFunction("create", { task: todoInput })
+      .then((result) => {
+        setTodos((exTodos) => [result, ...exTodos]);
+        console.log(result);
+      })
+      .catch((err) => console.log(err));
+    // setTodos([...todos, {  }]);
     setTodoInput("");
   };
 
