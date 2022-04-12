@@ -13,13 +13,14 @@ const MainPage = () => {
   const saveTodo = () => {
     //request configuration will add
     callFunction("create", { task: todoInput })
-      .then((result) => {
-        setTodos((exTodos) => [result, ...exTodos]);
-        console.log(result);
+      .then(() => {
+        viewFunction("get", { offset: 0 }).then((result) => {
+          setTodos(result);
+        });
+        setTodoInput("");
       })
       .catch((err) => console.log(err));
     // setTodos([...todos, {  }]);
-    setTodoInput("");
   };
 
   useEffect(() => {
